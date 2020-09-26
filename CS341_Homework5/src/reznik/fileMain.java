@@ -30,7 +30,7 @@ public class fileMain {
 	public Scanner scan;
 	public JButton fileBTN;
 	public String pathway;
-
+ 
 	/**
 	 * Launch the application.
 	 */
