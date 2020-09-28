@@ -114,13 +114,20 @@ public class fileMain {
 					scan = new Scanner(file);
 
 					String fromFile = scanning();
+					if(fromFile.equals("")) {
+						FileInput.setText("invalid");
+						OutputCalc
+						.setText("File is empty. Can’t proceed to do calculations until correct changes to file are made");
+						return;
+					}
 
 					if (!fromFile.equals("invalid")) {
 						FileInput.setText(fromFile);
 					} else {
 						FileInput.setText(fromFile);
 						OutputCalc
-								.setText("You either put a space in the list or put a invalid number, such as letters");
+								.setText("You either put a space in the list or put a invalid number, such as letters. Can’t proceed to do calculations until correct changes to file are made\n" + 
+										"");
 						return;
 					}
 
