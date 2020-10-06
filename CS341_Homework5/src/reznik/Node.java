@@ -1,5 +1,5 @@
 package reznik;
-
+//Node Creation
 public class Node {
 	public double value;
 	public Node next;

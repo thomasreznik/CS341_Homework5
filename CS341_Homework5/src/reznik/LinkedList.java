@@ -33,7 +33,7 @@ public class LinkedList {
 		}
 		return (sum / length);
 	}
-
+   // Calculates standard deviation using the mean
 	public double s_deviation() {
 		return s_deviation(this.mean());
 	}

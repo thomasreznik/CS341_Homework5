@@ -97,8 +97,9 @@ public class fileMain {
 	public void createEvents() {
 		fileBTN.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				//Jfile Choosing
 				JFileChooser fc = new JFileChooser();
+				//Directory of my computer to get File, change this to match your directory
 				fc.setCurrentDirectory(new java.io.File("C:/Users/thomasreznik/desktop"));
 				fc.setDialogTitle("File Directory");
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
@@ -114,13 +115,14 @@ public class fileMain {
 					scan = new Scanner(file);
 
 					String fromFile = scanning();
+					//Checks if File is empty
 					if(fromFile.equals("")) {
 						FileInput.setText("invalid");
 						OutputCalc
 						.setText("File is empty. Can’t proceed to do calculations until correct changes to file are made");
 						return;
 					}
-
+                    //If the file is valid, sets the text
 					if (!fromFile.equals("invalid")) {
 						FileInput.setText(fromFile);
 					} else {
@@ -147,19 +149,19 @@ public class fileMain {
 		});
 	}
 
-	// reads the file
+	//Reading the file
 	public String scanning() {
 
 		while (scan.hasNext()) {
-
-			String single = scan.nextLine();
-
-			if (isNumeric(single)) {
-				int value = Integer.parseInt(single);
+     //Scans a particular line
+			String singleline = scan.nextLine();
+      //Checks if value is numeric
+			if (isNumeric(singleline)) {
+				int value = Integer.parseInt(singleline);
 				list.append(value);
 				fileContent += value + "\n";
 			} else {
-				OutputCalc.setText("no");
+				OutputCalc.setText("invalid");
 				return "invalid";
 
 			}
@@ -174,7 +176,7 @@ public class fileMain {
 		double deviate = list.s_deviation(mean);
 		OutputCalc.setText("This is the mean: " + mean + "\n" + "This is the standard deviation: " + deviate);
 	}
-
+//Checks if the string is a number or not
 	public boolean isNumeric(String strNum) {
 		if (strNum == null) {
 			return false;
